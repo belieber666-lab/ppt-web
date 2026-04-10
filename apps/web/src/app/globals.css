@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'OPPO Sans';
+  src: url('https://cdn.jsdelivr.net/gh/OPPO-Archive/OPPOSans@master/OPPOSans-M.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'OPPO Sans';
+  src: url('https://cdn.jsdelivr.net/gh/OPPO-Archive/OPPOSans@master/OPPOSans-B.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'OPPO Sans';
+  src: url('https://cdn.jsdelivr.net/gh/OPPO-Archive/OPPOSans@master/OPPOSans-H.ttf');
+  font-weight: 900;
+}
+/* OPPO Sans 4.0 别名（模板中可能出现的各种写法） */
+@font-face {
+  font-family: 'OPPO Sans 4.0';
+  src: url('https://cdn.jsdelivr.net/gh/OPPO-Archive/OPPOSans@master/OPPOSans-M.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'OPPO Sans 4.0';
+  src: url('https://cdn.jsdelivr.net/gh/OPPO-Archive/OPPOSans@master/OPPOSans-B.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'OPPOSans40';
+  src: url('https://cdn.jsdelivr.net/gh/OPPO-Archive/OPPOSans@master/OPPOSans-M.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'OPPOSans40';
+  src: url('https://cdn.jsdelivr.net/gh/OPPO-Archive/OPPOSans@master/OPPOSans-B.ttf');
+  font-weight: 700;
+}
+
+:root {
+  --lc-bg:          #0e0e0e;
+  --lc-surface:     #1a1919;
+  --lc-surface-hi:  #201f1f;
+  --lc-surface-mid: #262626;
+  --lc-border:      rgba(255,255,255,0.08);
+  --lc-text:        #ffffff;
+  --lc-muted:       #adaaaa;
+  --lc-primary:     #cafd00;
+  --lc-primary-dim: #beee00;
+  --lc-primary-fg:  #516700;
+  --lc-error:       #ff7351;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--lc-bg);
+  color: var(--lc-text);
+  font-family: 'OPPO Sans', 'PingFang SC', 'Manrope', 'Microsoft YaHei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar        { width: 4px; height: 4px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: #2c2c2c; border-radius: 10px; }
+
+/* Glass util */
+.glass {
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+}
+
+/* Ghost border */
+.ghost-border {
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Frosted icon */
+.frosted {
+  background: linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03));
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Neon glow */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(202,253,0,0.35);
+}
+
+/* Ambient background orbs */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ambient-bg::before,
+.ambient-bg::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  animation: ambient-drift 20s ease-in-out infinite alternate;
+}
+.ambient-bg::before {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99,102,241,0.35), rgba(168,85,247,0.2), transparent 70%);
+  top: -10%;
+  right: -5%;
+  animation-delay: -5s;
+}
+.ambient-bg::after {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59,130,246,0.25), rgba(99,102,241,0.15), transparent 70%);
+  bottom: -5%;
+  left: -5%;
+  animation-delay: -12s;
+}
+
+@keyframes ambient-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -20px) scale(1.1); }
+  100% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+@keyframes lc-spin {
+  to { transform: rotate(360deg); }
+}
+.lc-spin {
+  animation: lc-spin 0.8s linear infinite;
+}
+
+@keyframes lc-pulse-dot {
+  0%,100% { opacity:1; }
+  50%      { opacity:0.3; }
+}
+.lc-pulse-dot {
+  animation: lc-pulse-dot 2s ease-in-out infinite;
+}

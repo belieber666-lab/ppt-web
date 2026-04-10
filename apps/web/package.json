@@ -1,0 +1,34 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 -p 3000",
+    "dev:clean": "rm -f .next/dev/lock && next dev -H 0.0.0.0 -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@ppt-web/core": "*",
+    "@uiw/react-color": "^2.9.6",
+    "fast-xml-parser": "^5.5.5",
+    "jszip": "^3.10.1",
+    "konva": "^9.3.20",
+    "next": "16.1.6",
+    "pptxgenjs": "^4.0.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-konva": "^19.0.10"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
