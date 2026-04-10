@@ -1,0 +1,37 @@
+{
+  "name": "ppt-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run -ws --if-present dev",
+    "dev:web": "npm -w apps/web run dev",
+    "dev:web:clean": "npm -w apps/web run dev:clean",
+    "dev:stack": "bash scripts/run-full-stack-foreground.sh",
+    "daemon:install": "bash scripts/install-launchagent.sh",
+    "daemon:uninstall": "bash scripts/uninstall-launchagent.sh",
+    "daemon:api:install": "bash scripts/install-api-launchagent.sh",
+    "daemon:api:uninstall": "bash scripts/uninstall-api-launchagent.sh",
+    "daemon:install:all": "bash scripts/install-all-daemons.sh",
+    "daemon:uninstall:all": "bash scripts/uninstall-all-daemons.sh",
+    "daemon:web:install": "bash scripts/install-web-daemon.sh",
+    "daemon:web:uninstall": "bash scripts/uninstall-web-daemon.sh",
+    "dev:api": "npm -w apps/api run dev",
+    "dev:python": "cd apps/python-api && venv/bin/uvicorn main:app --reload --port 8000",
+    "dev:backend": "cd ../../ppt-style-transfer/backend && python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload",
+    "build": "npm run -ws --if-present build",
+    "postinstall": "node scripts/patch-next-devtools-zh.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "patch-package": "^8.0.1"
+  }
+}
